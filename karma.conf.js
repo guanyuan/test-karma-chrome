@@ -1,14 +1,15 @@
 // Karma configuration
-// Generated on Mon Mar 17 2014 12:46:02 GMT+0800 (CST)
+// Generated on Wed Oct 19 2016 21:35:31 GMT+0800 (CST)
 
 module.exports = function(config) {
   config.set({
 
-    // base path, that will be used to resolve files and exclude
+    // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
 
     // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['mocha'],
 
 
@@ -19,17 +20,22 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
 
-    // reporters : ['progress'],
 
     // list of files to exclude
     exclude: [
-
     ],
 
 
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+    },
+
+
     // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['spec'],
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
 
 
     // web server port
@@ -49,23 +55,17 @@ module.exports = function(config) {
     autoWatch: true,
 
 
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
-
-    // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 60000,
 
 
     // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false
-  });
-};
-- karma.conf.js
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser should be started simultaneous
+    concurrency: Infinity
+  })
+}
